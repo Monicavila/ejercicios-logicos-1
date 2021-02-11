@@ -10,7 +10,15 @@
 
 
 function arrayOfMultiples (num, length) {
-	
+	let i = 1;
+    let array = [];
+
+    while(i <= length) {
+        let multlipy = num * i;
+        array.push(multlipy);
+        i++;
+    }
+	return array;
 }
 
 module.exports = {

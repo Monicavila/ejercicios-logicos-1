@@ -3,7 +3,7 @@
 // Crea una función que tome un numero n y revisa si cada digito es divisible por el digito que tiene a su izquierda
 // Regresa un arreglo booleano dependiendo si la condición se cumple.
 
-// Por ejemplo: 
+// Por ejemplo:
 // Input = 73312
 // Output = [false, false, true, false, true]
 // a.	No hay digito a la izquierda de 7 -> false
@@ -25,10 +25,30 @@
 
 // Nota: El arreglo siempre debe de empezar con un valor en falso.
 function divisibleByLeft(n) {
-    //Regresar el arreglo de la respuesta
-	return 0;
+  let array = n
+    .toString()
+    .split("")
+    .map(function (int) {
+      return parseInt(int);
+    });
+  let result = [];
+  let i = 1;
+
+  result.push(false);
+
+  while (i < array.length) {
+    let divide = array[i] % array[i - 1];
+    if (divide == 0) {
+      result.push(true);
+    } else {
+      result.push(false);
+    }
+    i++;
+  }
+  //Regresar el arreglo de la respuesta
+  return result;
 }
 
 module.exports = {
-    divisibleByLeft
-}
+  divisibleByLeft,
+};
